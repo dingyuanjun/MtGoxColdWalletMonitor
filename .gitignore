@@ -1,0 +1,8 @@
+*.user
+package-lock.json
+.idea/
+BlockchainProxyApi/obj/
+BlockchainProxyApi/bin/Debug/netcoreapp2.1/BlockchainProxyApi.dll
+BlockchainProxyApi/bin/Debug/netcoreapp2.1/BlockchainProxyApi.pdb
+MtGoxColdWalletMonitor/ClientApp/README.md
+BlockchainProxyApi/bin/Debug/netcoreapp2.1/BlockchainProxyApi.deps.json
