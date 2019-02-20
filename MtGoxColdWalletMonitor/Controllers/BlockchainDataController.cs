@@ -1,7 +1,9 @@
+using System.Collections.Generic;
 using System.Globalization;
 using System.Threading.Tasks;
 using BlockchainInfoApi;
 using Microsoft.AspNetCore.Mvc;
+using MtGoxColdWalletMonitor.Controllers.Dtos;
 
 namespace MtGoxColdWalletMonitor.Controllers
 {
@@ -9,10 +11,13 @@ namespace MtGoxColdWalletMonitor.Controllers
     public class BlockchainDataController : Controller
     {
         private readonly IBlockchainApiClient _blockchainApiClient;
+        private readonly IMtGoxAddressesFetcher _mtGoxAddressesFetcher;
 
-        public BlockchainDataController(IBlockchainApiClient blockchainApiClient)
+        public BlockchainDataController(IBlockchainApiClient blockchainApiClient,
+            IMtGoxAddressesFetcher mtGoxAddressesFetcher)
         {
             _blockchainApiClient = blockchainApiClient;
+            _mtGoxAddressesFetcher = mtGoxAddressesFetcher;
         }
 
         [HttpGet("[action]/{address}")]
@@ -21,6 +26,14 @@ namespace MtGoxColdWalletMonitor.Controllers
             var balance = await _blockchainApiClient.GetBalanceAsync(address);
 
             return balance.ToString(CultureInfo.InvariantCulture);
+        }
+        
+        [HttpGet("[action]")]
+        public async Task<List<WalletWithBalance>> GetLastKnownBalancesOfMtGoxAddresses()
+        {
+            var balances = await _mtGoxAddressesFetcher.GetListOfMtGoxWalletsWithBalances();
+
+            return balances;
         }
     }
 }

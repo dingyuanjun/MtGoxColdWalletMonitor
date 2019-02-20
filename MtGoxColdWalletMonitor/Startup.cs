@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using MtGoxColdWalletMonitor.Controllers;
 
 namespace MtGoxColdWalletMonitor
 {
@@ -23,6 +24,7 @@ namespace MtGoxColdWalletMonitor
         {
             services.RegisterBlockchainInfoAsProvider();
             services.AddScoped<IBlockchainApiClient, BlockchainApiClient>();
+            services.AddScoped<IMtGoxAddressesFetcher, MtGoxAddressesFetcher>();
             
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
