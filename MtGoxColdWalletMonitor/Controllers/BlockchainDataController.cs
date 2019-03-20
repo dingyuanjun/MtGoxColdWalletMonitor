@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Threading.Tasks;
@@ -34,6 +35,14 @@ namespace MtGoxColdWalletMonitor.Controllers
             var balances = await _mtGoxAddressesFetcher.GetListOfMtGoxWalletsWithBalances();
 
             return balances;
+        }
+        
+        [HttpGet("[action]/{address}")]
+        public async Task<DateTime?> GetLastOperationDate(string address)
+        {
+            var lastOperationDate = await _blockchainApiClient.GetLastTransactionDateAsync(address);
+
+            return lastOperationDate;
         }
     }
 }

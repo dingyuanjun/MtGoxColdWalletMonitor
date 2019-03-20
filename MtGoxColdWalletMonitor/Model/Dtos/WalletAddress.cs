@@ -8,5 +8,6 @@ namespace MtGoxColdWalletMonitor.Model.Dtos
          public string Hash160Address { get; set; }
          public decimal? LastKnownBalance { get; set; }
          public DateTime? LastCheckedDateTime { get; set; }
+         public DateTime? LastOperationDateTime { get; set; }
      }
  }

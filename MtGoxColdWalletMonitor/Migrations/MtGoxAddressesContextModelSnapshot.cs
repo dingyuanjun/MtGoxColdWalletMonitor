@@ -27,6 +27,8 @@ namespace MtGoxColdWalletMonitor.Migrations
 
                     b.Property<decimal?>("LastKnownBalance");
 
+                    b.Property<DateTime?>("LastOperationDateTime");
+
                     b.HasKey("WalletAddressId");
 
                     b.ToTable("WalletAddresses");

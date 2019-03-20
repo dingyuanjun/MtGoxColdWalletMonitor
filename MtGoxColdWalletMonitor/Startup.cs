@@ -22,8 +22,9 @@ namespace MtGoxColdWalletMonitor
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.RegisterBlockchainInfoAsProvider();
-            services.AddScoped<IBlockchainApiClient, BlockchainApiClient>();
+            // we are setting up threshold, so smaller transactions won't be taken into account
+            services.RegisterBlockchainApiClient(0.1m);
+            
             services.AddScoped<IMtGoxAddressesFetcher, MtGoxAddressesFetcher>();
             
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);

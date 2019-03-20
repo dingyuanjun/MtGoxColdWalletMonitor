@@ -9,8 +9,8 @@ using MtGoxColdWalletMonitor.Model;
 namespace MtGoxColdWalletMonitor.Migrations
 {
     [DbContext(typeof(MtGoxAddressesContext))]
-    [Migration("20190212205005_InsertData")]
-    partial class InsertData
+    [Migration("20190320192119_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,6 +28,8 @@ namespace MtGoxColdWalletMonitor.Migrations
                     b.Property<DateTime?>("LastCheckedDateTime");
 
                     b.Property<decimal?>("LastKnownBalance");
+
+                    b.Property<DateTime?>("LastOperationDateTime");
 
                     b.HasKey("WalletAddressId");
 
