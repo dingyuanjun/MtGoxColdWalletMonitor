@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using BlockchainInfoApi;
 using Microsoft.AspNetCore.Mvc;
 using MtGoxColdWalletMonitor.Controllers.Dtos;
+using MtGoxColdWalletMonitor.Services;
 
 namespace MtGoxColdWalletMonitor.Controllers
 {

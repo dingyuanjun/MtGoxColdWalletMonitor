@@ -9,7 +9,7 @@ using MtGoxColdWalletMonitor.Model;
 namespace MtGoxColdWalletMonitor.Migrations
 {
     [DbContext(typeof(MtGoxAddressesContext))]
-    [Migration("20190320192119_InitialCreate")]
+    [Migration("20190514180308_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -30,6 +30,8 @@ namespace MtGoxColdWalletMonitor.Migrations
                     b.Property<decimal?>("LastKnownBalance");
 
                     b.Property<DateTime?>("LastOperationDateTime");
+
+                    b.Property<decimal?>("TotalBalance");
 
                     b.HasKey("WalletAddressId");
 

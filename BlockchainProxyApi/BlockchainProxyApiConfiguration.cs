@@ -10,7 +10,7 @@ namespace BlockchainInfoApi
         {
             services.AddSingleton<BlockchainHttpClient>();
             services.AddSingleton<BlockExplorer>();
-            services.AddScoped<IBlockchainApiClient>(s => new BlockchainApiClient(s.GetService<BlockExplorer>(), threshold));
+            services.AddTransient<IBlockchainApiClient>(s => new BlockchainApiClient(s.GetService<BlockExplorer>(), threshold));
             
             return services;
         }

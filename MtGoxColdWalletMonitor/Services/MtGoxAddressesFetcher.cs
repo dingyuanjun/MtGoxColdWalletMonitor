@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using MtGoxColdWalletMonitor.Controllers.Dtos;
 using MtGoxColdWalletMonitor.Model;
 
-namespace MtGoxColdWalletMonitor.Controllers
+namespace MtGoxColdWalletMonitor.Services
 {
     public interface IMtGoxAddressesFetcher
     {
